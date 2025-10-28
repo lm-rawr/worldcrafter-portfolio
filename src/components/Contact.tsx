@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Github, Linkedin, Mail, ExternalLink } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import Particles from "./Particles";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -32,8 +33,9 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-muted/20">
-      <div className="container mx-auto px-6">
+    <section id="contact" className="relative min-h-screen flex items-center py-20 bg-muted/20">
+      <Particles />
+      <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

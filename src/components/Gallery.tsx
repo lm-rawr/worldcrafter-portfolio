@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useState } from "react";
+import Particles from "./Particles";
 
 const Gallery = () => {
   const [selectedItem, setSelectedItem] = useState<typeof galleryItems[0] | null>(null);
@@ -46,8 +47,9 @@ const Gallery = () => {
   ];
 
   return (
-    <section id="gallery" className="py-20">
-      <div className="container mx-auto px-6">
+    <section id="gallery" className="relative min-h-screen flex items-center py-20">
+      <Particles />
+      <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

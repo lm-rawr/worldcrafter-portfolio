@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ExternalLink, Github } from "lucide-react";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useState } from "react";
+import Particles from "./Particles";
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
@@ -67,8 +68,9 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-muted/20">
-      <div className="container mx-auto px-6">
+    <section id="projects" className="relative min-h-screen flex items-center py-20 bg-muted/20">
+      <Particles />
+      <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
