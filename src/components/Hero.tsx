@@ -19,7 +19,7 @@ const Hero = () => {
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${heroBg})` }}
         />
-        <div className="absolute inset-0 bg-background/60 backdrop-blur-sm" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/70 to-background/60" />
       </div>
 
       {/* Animated Particles */}
@@ -46,14 +46,15 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 text-center">
+      <div className="relative z-10 container mx-auto px-6 flex items-center justify-center md:justify-end">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
+          className="max-w-xl text-center md:text-right md:pr-12"
         >
           <motion.h1
-            className="text-5xl md:text-7xl font-bold mb-6"
+            className="text-5xl md:text-7xl font-bold mb-6 drop-shadow-lg"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
@@ -64,7 +65,7 @@ const Hero = () => {
           </motion.h1>
 
           <motion.p
-            className="text-xl md:text-3xl text-foreground/90 mb-4"
+            className="text-xl md:text-3xl text-foreground/90 mb-4 drop-shadow-md"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
@@ -73,7 +74,7 @@ const Hero = () => {
           </motion.p>
 
           <motion.p
-            className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto"
+            className="text-lg md:text-xl text-muted-foreground mb-12 drop-shadow-md"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
