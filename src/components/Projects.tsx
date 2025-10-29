@@ -6,64 +6,60 @@ import { ExternalLink, Github } from "lucide-react";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useState } from "react";
 import Particles from "./Particles";
+import mindEaterImg from "@/assets/mindeater.png";
+import earthquakeMuseumImg from "@/assets/earthquake-museum.png";
+import afterDeathImg from "@/assets/afterdeath.png";
+import spaceInvadersImg from "@/assets/space-invaders.png";
+import normanImg from "@/assets/norman.png";
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
 
   const projects = [
     {
-      title: "Neon Pulse",
-      description: "Fast-paced cyberpunk action game with dynamic combat systems",
-      fullDescription: "An intense action game featuring fluid combat mechanics, procedural enemy generation, and a progression system that rewards skill and strategy. Built with Unity and C#, featuring multiplayer support with dedicated server architecture.",
-      tags: ["Unity", "C#", "Multiplayer"],
-      gradient: "from-primary to-accent",
-      gameLink: "https://example.com/neon-pulse",
-      githubLink: "https://github.com/example/neon-pulse",
+      title: "MindEater",
+      description: "2D Metroidvania/rogue-like about a spider trying to look for its lost memories",
+      fullDescription: "'MindEater' follows the story of Spoof, who ventures through a diverse apocalyptic world looking for his past. The user plays as the spider exploring places and defeating enemies while uncovering what mystery lies behind.",
+      tags: ["Unity", "C#", "2D"],
+      image: mindEaterImg,
+      gameLink: "https://example.com/mindeater",
+      githubLink: "https://github.com/example/mindeater",
     },
     {
-      title: "Mystic Realms",
-      description: "Fantasy RPG featuring procedural world generation",
-      fullDescription: "An open-world fantasy RPG with infinite procedural terrain generation, dynamic quest systems, and AI-driven NPC behaviors. Created in Unreal Engine with advanced Blueprint scripting and custom AI behavior trees.",
-      tags: ["Unreal", "Blueprint", "AI"],
-      gradient: "from-accent to-secondary",
-      gameLink: "https://example.com/mystic-realms",
-      githubLink: "https://github.com/example/mystic-realms",
+      title: "Earthquake Museum",
+      description: "Interactive 3D website that hosts different stories about the earthquake",
+      fullDescription: "'Earthquake Museum' was built to showcase a plethora of events that happened during and after the 2015 Nepal earthquake on its 10 year anniversary in 2025. It hosts several stories covered by the Nepali Times.",
+      tags: ["p5.js", "THREE.js", "Blender"],
+      image: earthquakeMuseumImg,
+      gameLink: "https://example.com/earthquake-museum",
+      githubLink: "https://github.com/example/earthquake-museum",
     },
     {
-      title: "Quantum Shift",
-      description: "Puzzle platformer exploring time manipulation mechanics",
-      fullDescription: "A mind-bending puzzle platformer where players manipulate time to solve challenges. Features custom shader effects for time distortion, physics-based puzzles, and a narrative that unfolds through environmental storytelling.",
-      tags: ["Unity", "Shader", "Physics"],
-      gradient: "from-secondary to-primary",
-      gameLink: "https://example.com/quantum-shift",
-      githubLink: "https://github.com/example/quantum-shift",
+      title: "AfterDeath",
+      description: "Animated Audio-Visual Comic dealing with Hindu concepts of sin, death, and afterlife",
+      fullDescription: "'AfterDeath' is a short comic that uses image detection to play animations in different pages adjacent to an illustration. It cleverly plays with the concept of revelation in the afterlife revealing the outcome of each animation after the page is turned.",
+      tags: ["p5.js", "teachable-machine", "interactive"],
+      image: afterDeathImg,
+      gameLink: "https://example.com/afterdeath",
+      githubLink: "https://github.com/example/afterdeath",
     },
     {
-      title: "Urban Legends",
-      description: "Narrative-driven adventure in a modern fantasy setting",
-      fullDescription: "A story-rich adventure game blending modern urban environments with mythological elements. Features branching dialogue systems, cinematic cutscenes, and multiple endings based on player choices.",
-      tags: ["Unreal", "Cinematics", "Dialogue"],
-      gradient: "from-primary via-accent to-secondary",
-      gameLink: "https://example.com/urban-legends",
-      githubLink: "https://github.com/example/urban-legends",
+      title: "Space Invaders",
+      description: "The Classic Arcade Game of Space Invaders",
+      fullDescription: "'Space Invaders' follows the classic battleship 2D pixel game, where you try to survive as long as you can on a spaceship while being invaded by enemies. It uses simple movement and shooting mechanics.",
+      tags: ["python", "processing", "2D"],
+      image: spaceInvadersImg,
+      gameLink: "https://example.com/space-invaders",
+      githubLink: "https://github.com/example/space-invaders",
     },
     {
-      title: "Void Runner",
-      description: "Endless runner with dynamic difficulty and power-ups",
-      fullDescription: "A mobile-optimized endless runner with adaptive difficulty that responds to player skill. Includes an economy system, power-up mechanics, and monetization integration. Optimized for both iOS and Android platforms.",
-      tags: ["Unity", "Mobile", "Monetization"],
-      gradient: "from-accent to-primary",
-      gameLink: "https://example.com/void-runner",
-      githubLink: "https://github.com/example/void-runner",
-    },
-    {
-      title: "Crystal Caves 3D",
-      description: "Exploration game featuring custom 3D environments",
-      fullDescription: "A web-based 3D exploration game built with Three.js and WebGL. Features custom-modeled environments created in Blender, real-time lighting, and interactive elements. Demonstrates the potential of browser-based 3D gaming.",
-      tags: ["Blender", "Three.js", "WebGL"],
-      gradient: "from-secondary to-accent",
-      gameLink: "https://example.com/crystal-caves",
-      githubLink: "https://github.com/example/crystal-caves",
+      title: "Norman",
+      description: "A robot built for a collaborative play featuring different robots",
+      fullDescription: "'Norman' or 'Robocorp' is a robot designed for the all robot play 'RoboLove', which was performed in the exhibition 'Robot Island' in NYAUD Arts Centre. Powered by Arduino, its movements and sounds are controlled and triggered using two remote controllers.",
+      tags: ["arduino", "wood-building", "remote-control"],
+      image: normanImg,
+      gameLink: "https://example.com/norman",
+      githubLink: "https://github.com/example/norman",
     },
   ];
 
@@ -98,9 +94,12 @@ const Projects = () => {
               onClick={() => setSelectedProject(project)}
             >
               <Card className="group h-full bg-card/50 backdrop-blur-sm border-border hover:border-primary/50 transition-all overflow-hidden hover:shadow-[0_0_30px_rgba(100,150,100,0.3)] cursor-pointer">
-                <div
-                  className={`h-48 bg-gradient-to-br ${project.gradient} relative overflow-hidden`}
-                >
+                <div className="h-48 relative overflow-hidden bg-muted">
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                  />
                   <div className="absolute inset-0 bg-background/20 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
                     <div className="p-3 bg-primary/20 rounded-full">
                       <ExternalLink className="text-primary" size={20} />
