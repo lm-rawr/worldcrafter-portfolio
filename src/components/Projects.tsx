@@ -27,7 +27,7 @@ const Projects = () => {
     },
     {
       title: "Earthquake Museum",
-      description: "Interactive 3D website that hosts different stories about the earthquake",
+      description: "Interactive 3D website that hosts different stories about the 2015 Nepal earthquake",
       fullDescription: "'Earthquake Museum' was built to showcase a plethora of events that happened during and after the 2015 Nepal earthquake on its 10 year anniversary in 2025. It hosts several stories covered by the Nepali Times.",
       tags: ["p5.js", "THREE.js", "Blender"],
       image: earthquakeMuseumImg,
@@ -54,7 +54,7 @@ const Projects = () => {
     },
     {
       title: "Norman",
-      description: "A robot built for a collaborative play featuring different robots",
+      description: "A robot build for a collaborative all-robot play",
       fullDescription: "'Norman' or 'Robocorp' is a robot designed for the all robot play 'RoboLove', which was performed in the exhibition 'Robot Island' in NYAUD Arts Centre. Powered by Arduino, its movements and sounds are controlled and triggered using two remote controllers.",
       tags: ["arduino", "wood-building", "remote-control"],
       image: normanImg,

@@ -9,12 +9,12 @@ const About = () => {
   const [totalXP, setTotalXP] = useState(0);
   
   const skills = [
-    { name: "Unity", level: 90, icon: Code, xp: 4500, color: "text-emerald-500" },
-    { name: "Unreal Engine", level: 85, icon: Code, xp: 4250, color: "text-blue-500" },
-    { name: "Blender", level: 80, icon: Box, xp: 4000, color: "text-orange-500" },
+    { name: "Unity", level: 80, icon: Code, xp: 4000, color: "text-emerald-500" },
+    { name: "Blender", level: 90, icon: Box, xp: 4500, color: "text-orange-500" },
     { name: "Three.js", level: 75, icon: Zap, xp: 3750, color: "text-yellow-500" },
-    { name: "Game Design", level: 95, icon: Palette, xp: 4750, color: "text-purple-500" },
-    { name: "Level Design", level: 88, icon: Palette, xp: 4400, color: "text-pink-500" },
+    { name: "Game Design", level: 75, icon: Palette, xp: 3750, color: "text-purple-500" },
+    { name: "p5.js", level: 85, icon: Code, xp: 4250, color: "text-blue-500" },
+    { name: "Arduino", level: 85, icon: Zap, xp: 4250, color: "text-pink-500" },
   ];
 
   const achievements = [
@@ -216,7 +216,7 @@ const About = () => {
             <Card className="p-6 bg-card/50 backdrop-blur-sm border-border hover:border-primary/50 transition-all">
               <h4 className="text-xl font-bold mb-3 text-primary">About The Player</h4>
               <p className="text-foreground/80 mb-3 leading-relaxed">
-                A game designer who believes in crafting immersive worlds where every 
+                A designer who believes in crafting immersive worlds where every 
                 mechanic tells a story and every system serves a purpose.
               </p>
               <p className="text-foreground/80 leading-relaxed">

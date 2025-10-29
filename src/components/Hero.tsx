@@ -51,7 +51,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
           >
-            Game Designer & Developer
+            Interactive Storyteller
           </motion.p>
 
           <motion.p
@@ -60,7 +60,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
           >
-            Crafting Worlds, One Game at a Time
+            Crafting Worlds, Building Characters, Weaving Tales
           </motion.p>
 
           <motion.div

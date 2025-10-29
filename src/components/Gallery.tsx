@@ -105,14 +105,7 @@ const Gallery = () => {
               href="#"
               className="text-primary hover:text-accent transition-colors underline"
             >
-              ArtStation
-            </a>{" "}
-            and{" "}
-            <a
-              href="#"
-              className="text-primary hover:text-accent transition-colors underline"
-            >
-              Sketchfab
+              Instagram
             </a>
           </p>
         </motion.div>
