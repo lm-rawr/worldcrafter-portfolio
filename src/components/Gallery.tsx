@@ -1,48 +1,45 @@
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useState } from "react";
 import Particles from "./Particles";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import beastDrapedWhite from "@/assets/beast-draped-white.png";
+import dogfestPoster from "@/assets/dogfest-poster.png";
+import blenderModel from "@/assets/3d-model-blender.png";
+import tigerIllustration from "@/assets/tiger-illustration.png";
 
 const Gallery = () => {
   const [selectedItem, setSelectedItem] = useState<typeof galleryItems[0] | null>(null);
 
   const galleryItems = [
     {
-      title: "Environment Design",
-      category: "3D Art",
-      gradient: "from-primary via-accent to-secondary",
-      description: "Lush forest environments with dynamic lighting and atmospheric effects. Created using Blender and Unity, these scenes showcase detailed foliage systems and realistic terrain generation.",
-    },
-    {
       title: "Character Concepts",
       category: "Concept Art",
-      gradient: "from-accent to-primary",
-      description: "Original character designs blending fantasy elements with natural aesthetics. Detailed sketches and digital paintings exploring personality through form and color.",
+      image: beastDrapedWhite,
+      description: "Original character designs blending fantasy elements with natural aesthetics. Exploring personality and narrative through form, color, and expression.",
+      slideshowImages: [beastDrapedWhite, beastDrapedWhite, beastDrapedWhite], // Placeholder images
     },
     {
       title: "Animations",
       category: "Animation",
-      gradient: "from-secondary to-accent",
-      description: "Fluid character animations and environmental effects. Motion capture integration and procedural animation systems for realistic movement and interaction.",
+      image: dogfestPoster,
+      description: "Animated works and motion graphics. From short films to interactive animations, showcasing storytelling through movement and time-based media.",
+      slideshowImages: [dogfestPoster, dogfestPoster, dogfestPoster], // Placeholder images
     },
     {
-      title: "Particle Effects",
-      category: "VFX",
-      gradient: "from-primary to-secondary",
-      description: "Nature-inspired particle systems including magic effects, weather simulations, and environmental atmospherics. Created using Unity's VFX Graph and custom shaders.",
+      title: "3D Models",
+      category: "3D Art",
+      image: blenderModel,
+      description: "3D modeling and sculpting work created in Blender. From character models to environmental assets, focusing on form, texture, and detail.",
+      slideshowImages: [blenderModel, blenderModel, blenderModel], // Placeholder images
     },
     {
-      title: "Weapon Models",
-      category: "3D Assets",
-      gradient: "from-accent via-primary to-secondary",
-      description: "Detailed 3D weapon models with PBR texturing. Optimized for real-time rendering with multiple LOD levels and modular design systems.",
-    },
-    {
-      title: "Level Layouts",
-      category: "Level Design",
-      gradient: "from-secondary via-accent to-primary",
-      description: "Strategic level designs focusing on player flow and environmental storytelling. Includes top-down layouts, encounter design, and pacing documentation.",
+      title: "Illustrations",
+      category: "Digital Art",
+      image: tigerIllustration,
+      description: "Digital illustrations and paintings. Exploring color, composition, and visual storytelling through 2D artwork and concept pieces.",
+      slideshowImages: [tigerIllustration, tigerIllustration, tigerIllustration], // Placeholder images
     },
   ];
 
@@ -66,7 +63,7 @@ const Gallery = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {galleryItems.map((item, index) => (
             <motion.div
               key={item.title}
@@ -78,15 +75,18 @@ const Gallery = () => {
               onClick={() => setSelectedItem(item)}
             >
               <Card className="group overflow-hidden border-border hover:border-primary/50 transition-all cursor-pointer hover:shadow-[0_0_30px_rgba(100,150,100,0.3)]">
-                <div
-                  className={`relative h-64 bg-gradient-to-br ${item.gradient} flex items-center justify-center overflow-hidden`}
-                >
-                  <div className="absolute inset-0 bg-background/30 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="relative h-64 flex items-center justify-center overflow-hidden">
+                  <img 
+                    src={item.image} 
+                    alt={item.title}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-background/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity" />
                   <div className="relative z-10 text-center p-6">
-                    <h3 className="text-2xl font-bold mb-2 tracking-tight">{item.title}</h3>
-                    <p className="text-sm text-foreground/80 tracking-wide">{item.category}</p>
+                    <h3 className="text-2xl font-bold mb-2 tracking-tight drop-shadow-lg">{item.title}</h3>
+                    <p className="text-sm text-foreground/90 tracking-wide drop-shadow-md">{item.category}</p>
                   </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent" />
                 </div>
               </Card>
             </motion.div>
@@ -119,18 +119,39 @@ const Gallery = () => {
       </div>
 
       <Dialog open={!!selectedItem} onOpenChange={() => setSelectedItem(null)}>
-        <DialogContent className="bg-card border-border">
+        <DialogContent className="bg-card border-border max-w-4xl">
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold text-primary tracking-tight">
               {selectedItem?.title}
             </DialogTitle>
-            <DialogDescription className="text-muted-foreground text-base leading-relaxed pt-2">
-              <span className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-sm mb-4">
-                {selectedItem?.category}
-              </span>
-              <p className="mt-2 leading-relaxed">{selectedItem?.description}</p>
-            </DialogDescription>
+            <span className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-sm w-fit">
+              {selectedItem?.category}
+            </span>
           </DialogHeader>
+          
+          <div className="mt-4">
+            <Carousel className="w-full">
+              <CarouselContent>
+                {selectedItem?.slideshowImages.map((image, index) => (
+                  <CarouselItem key={index}>
+                    <div className="flex items-center justify-center p-6">
+                      <img 
+                        src={image} 
+                        alt={`${selectedItem.title} - ${index + 1}`}
+                        className="max-h-[60vh] w-auto object-contain rounded-lg"
+                      />
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="left-2" />
+              <CarouselNext className="right-2" />
+            </Carousel>
+            
+            <p className="text-muted-foreground leading-relaxed mt-6">
+              {selectedItem?.description}
+            </p>
+          </div>
         </DialogContent>
       </Dialog>
     </section>
