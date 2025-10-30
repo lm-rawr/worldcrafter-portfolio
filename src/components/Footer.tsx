@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Heart } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -10,13 +11,8 @@ const Footer = () => {
           viewport={{ once: true }}
           className="text-center"
         >
-          <p className="text-muted-foreground">
-            © 2024 Aadhar Wasti. All rights reserved.
-          </p>
-          <p className="text-sm text-muted-foreground mt-2">
-            <span className="bg-gradient-neon bg-clip-text text-transparent">
-              Crafting Worlds, One Game at a Time
-            </span>
+          <p className="text-muted-foreground flex items-center justify-center gap-2">
+            © 2025 Aadhar Wasti. All rights reserved. Made with <Heart className="w-4 h-4 fill-primary text-primary" />
           </p>
         </motion.div>
       </div>

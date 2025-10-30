@@ -29,7 +29,7 @@ const Gallery = () => {
       title: "Animations",
       category: "Animation",
       image: dogfestPoster,
-      description: "Animated works and motion graphics. From short films to interactive animations, showcasing storytelling through movement and time-based media.",
+      description: "Short hand drawn animation sequences created in Blender Grease Pencil.",
       slideshowItems: [
         { media: seasonsVideo, type: "video", description: "Seasons: A short animation sequence showing the slippers i have owned for a year and its changing state as the seasons change" },
         { media: eyeLoopVideo, type: "video", description: "Eye experimental: An experimental animation loop" },
@@ -38,9 +38,9 @@ const Gallery = () => {
     },
     {
       title: "3D Models",
-      category: "3D Art",
+      category: "3D assets",
       image: blenderModel,
-      description: "3D modeling and sculpting work created in Blender. From character models to environmental assets, focusing on form, texture, and detail.",
+      description: "Asset and character models created in Blender",
       slideshowItems: [
         { media: blenderModel, type: "image", description: "" }
       ],
