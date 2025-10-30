@@ -8,6 +8,9 @@ import beastDrapedWhite from "@/assets/beast-draped-white.png";
 import dogfestPoster from "@/assets/dogfest-poster.png";
 import blenderModel from "@/assets/3d-model-blender.png";
 import tigerIllustration from "@/assets/tiger-illustration.png";
+import seasonsVideo from "@/assets/final.mp4";
+import eyeLoopVideo from "@/assets/eyeloop.mp4";
+import swayambhuVideo from "@/assets/Swayambhu.mp4";
 
 const Gallery = () => {
   const [selectedItem, setSelectedItem] = useState<typeof galleryItems[0] | null>(null);
@@ -18,28 +21,38 @@ const Gallery = () => {
       category: "Concept Art",
       image: beastDrapedWhite,
       description: "Original character designs blending fantasy elements with natural aesthetics. Exploring personality and narrative through form, color, and expression.",
-      slideshowImages: [beastDrapedWhite, beastDrapedWhite, beastDrapedWhite], // Placeholder images
+      slideshowItems: [
+        { media: beastDrapedWhite, type: "image", description: "" }
+      ],
     },
     {
       title: "Animations",
       category: "Animation",
       image: dogfestPoster,
       description: "Animated works and motion graphics. From short films to interactive animations, showcasing storytelling through movement and time-based media.",
-      slideshowImages: [dogfestPoster, dogfestPoster, dogfestPoster], // Placeholder images
+      slideshowItems: [
+        { media: seasonsVideo, type: "video", description: "Seasons: A short animation sequence showing the slippers i have owned for a year and its changing state as the seasons change" },
+        { media: eyeLoopVideo, type: "video", description: "Eye experimental: An experimental animation loop" },
+        { media: swayambhuVideo, type: "video", description: "A short animation of the prayer flags in Swayambhunath, a stupa in Kathmandu" }
+      ],
     },
     {
       title: "3D Models",
       category: "3D Art",
       image: blenderModel,
       description: "3D modeling and sculpting work created in Blender. From character models to environmental assets, focusing on form, texture, and detail.",
-      slideshowImages: [blenderModel, blenderModel, blenderModel], // Placeholder images
+      slideshowItems: [
+        { media: blenderModel, type: "image", description: "" }
+      ],
     },
     {
       title: "Illustrations",
       category: "Digital Art",
       image: tigerIllustration,
       description: "Digital illustrations and paintings. Exploring color, composition, and visual storytelling through 2D artwork and concept pieces.",
-      slideshowImages: [tigerIllustration, tigerIllustration, tigerIllustration], // Placeholder images
+      slideshowItems: [
+        { media: tigerIllustration, type: "image", description: "" }
+      ],
     },
   ];
 
@@ -125,14 +138,30 @@ const Gallery = () => {
           <div className="mt-4">
             <Carousel className="w-full">
               <CarouselContent>
-                {selectedItem?.slideshowImages.map((image, index) => (
+                {selectedItem?.slideshowItems.map((item, index) => (
                   <CarouselItem key={index}>
-                    <div className="flex items-center justify-center p-6">
-                      <img 
-                        src={image} 
-                        alt={`${selectedItem.title} - ${index + 1}`}
-                        className="max-h-[60vh] w-auto object-contain rounded-lg"
-                      />
+                    <div className="flex flex-col items-center justify-center p-6">
+                      {item.type === "video" ? (
+                        <video 
+                          src={item.media} 
+                          controls
+                          className="max-h-[60vh] w-auto object-contain rounded-lg"
+                          loop
+                        >
+                          Your browser does not support the video tag.
+                        </video>
+                      ) : (
+                        <img 
+                          src={item.media} 
+                          alt={`${selectedItem.title} - ${index + 1}`}
+                          className="max-h-[60vh] w-auto object-contain rounded-lg"
+                        />
+                      )}
+                      {item.description && (
+                        <p className="text-muted-foreground leading-relaxed mt-4 text-center max-w-2xl">
+                          {item.description}
+                        </p>
+                      )}
                     </div>
                   </CarouselItem>
                 ))}
