@@ -1,35 +1,15 @@
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Github, Linkedin, Mail, ExternalLink } from "lucide-react";
-import { useState } from "react";
-import { useToast } from "@/hooks/use-toast";
+import { Github, Linkedin, Mail, Instagram, Youtube } from "lucide-react";
 import Particles from "./Particles";
 
 const Contact = () => {
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({
-      title: "Message Sent!",
-      description: "Thanks for reaching out. I'll get back to you soon.",
-    });
-    setFormData({ name: "", email: "", message: "" });
-  };
-
   const socialLinks = [
-    { icon: Github, label: "GitHub", href: "#", color: "hover:text-primary" },
-    { icon: Linkedin, label: "LinkedIn", href: "#", color: "hover:text-primary" },
-    { icon: Mail, label: "Email", href: "mailto:aadhar@example.com", color: "hover:text-accent" },
-    { icon: ExternalLink, label: "Itch.io", href: "#", color: "hover:text-accent" },
+    { icon: Github, label: "GitHub", href: "https://github.com/lm-rawr", color: "hover:text-primary" },
+    { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/aadhar-wasti-575998256/", color: "hover:text-primary" },
+    { icon: Mail, label: "Email", href: "mailto:wastiaadhar10@gmail.com", color: "hover:text-accent" },
+    { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/aawazdesigns/", color: "hover:text-accent" },
+    { icon: Youtube, label: "Youtube", href: "https://www.youtube.com/@aawazanimates", color: "hover:text-accent" },
   ];
 
   return (
@@ -52,13 +32,13 @@ const Contact = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+        <div className="max-w-2xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <Card className="p-8 bg-card/50 backdrop-blur-sm border-border h-full">
+            <Card className="p-8 bg-card/50 backdrop-blur-sm border-border">
               <h3 className="text-2xl font-bold mb-6 text-primary">
                 Let's Connect
               </h3>
@@ -74,6 +54,8 @@ const Contact = () => {
                     <a
                       key={social.label}
                       href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className={`flex items-center gap-4 p-4 bg-muted/50 rounded-lg transition-all ${social.color} hover:bg-muted hover:translate-x-2`}
                     >
                       <Icon size={24} />
@@ -82,65 +64,6 @@ const Contact = () => {
                   );
                 })}
               </div>
-            </Card>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
-            <Card className="p-8 bg-card/50 backdrop-blur-sm border-border">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label className="block text-sm font-medium mb-2">Name</label>
-                  <Input
-                    value={formData.name}
-                    onChange={(e) =>
-                      setFormData({ ...formData, name: e.target.value })
-                    }
-                    placeholder="Your name"
-                    required
-                    className="bg-background/50 border-border focus:border-primary"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium mb-2">Email</label>
-                  <Input
-                    type="email"
-                    value={formData.email}
-                    onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
-                    }
-                    placeholder="your.email@example.com"
-                    required
-                    className="bg-background/50 border-border focus:border-primary"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium mb-2">Message</label>
-                  <Textarea
-                    value={formData.message}
-                    onChange={(e) =>
-                      setFormData({ ...formData, message: e.target.value })
-                    }
-                    placeholder="Tell me about your project..."
-                    rows={5}
-                    required
-                    className="bg-background/50 border-border focus:border-primary resize-none"
-                  />
-                </div>
-
-                <Button
-                  type="submit"
-                  size="lg"
-                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-[0_0_20px_rgba(0,255,255,0.5)] hover:shadow-[0_0_30px_rgba(0,255,255,0.7)] transition-all"
-                >
-                  Send Message
-                </Button>
-              </form>
             </Card>
           </motion.div>
         </div>
