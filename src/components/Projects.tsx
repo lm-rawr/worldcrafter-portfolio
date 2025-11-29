@@ -22,8 +22,7 @@ const Projects = () => {
       fullDescription: "'MindEater' follows the story of Spoof, who ventures through a diverse apocalyptic world looking for his past. The user plays as the spider exploring places and defeating enemies while uncovering what mystery lies behind.",
       tags: ["Unity", "C#", "2D"],
       image: mindEaterImg,
-      gameLink: "https://example.com/mindeater",
-      githubLink: "https://github.com/example/mindeater",
+      readMoreLink: "https://www.pi.inc/docs/385419110598881?share_token=HN3EX4E3ORCIU",
     },
     {
       title: "Earthquake Museum",
@@ -152,27 +151,42 @@ const Projects = () => {
               </div>
               <p className="leading-relaxed mb-6">{selectedProject?.fullDescription}</p>
               <div className="flex gap-3">
-                <Button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    window.open(selectedProject?.gameLink, '_blank');
-                  }}
-                  className="bg-primary text-primary-foreground hover:bg-primary/90"
-                >
-                  <ExternalLink className="mr-2" size={16} />
-                  Play Game
-                </Button>
-                <Button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    window.open(selectedProject?.githubLink, '_blank');
-                  }}
-                  variant="outline"
-                  className="border-primary text-primary hover:bg-primary/10"
-                >
-                  <Github className="mr-2" size={16} />
-                  View Code
-                </Button>
+                {selectedProject?.readMoreLink ? (
+                  <Button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      window.open(selectedProject?.readMoreLink, '_blank');
+                    }}
+                    className="bg-primary text-primary-foreground hover:bg-primary/90"
+                  >
+                    <ExternalLink className="mr-2" size={16} />
+                    Read More
+                  </Button>
+                ) : (
+                  <>
+                    <Button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        window.open(selectedProject?.gameLink, '_blank');
+                      }}
+                      className="bg-primary text-primary-foreground hover:bg-primary/90"
+                    >
+                      <ExternalLink className="mr-2" size={16} />
+                      Play Game
+                    </Button>
+                    <Button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        window.open(selectedProject?.githubLink, '_blank');
+                      }}
+                      variant="outline"
+                      className="border-primary text-primary hover:bg-primary/10"
+                    >
+                      <Github className="mr-2" size={16} />
+                      View Code
+                    </Button>
+                  </>
+                )}
               </div>
             </DialogDescription>
           </DialogHeader>
