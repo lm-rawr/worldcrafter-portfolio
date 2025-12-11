@@ -22,7 +22,7 @@ const Projects = () => {
       fullDescription: "'MindEater' follows the story of Spoof, who ventures through a diverse apocalyptic world looking for his past. The user plays as the spider exploring places and defeating enemies while uncovering what mystery lies behind.",
       tags: ["Unity", "C#", "2D"],
       image: mindEaterImg,
-      readMoreLink: "https://www.pi.inc/docs/385419110598881?share_token=HN3EX4E3ORCIU",
+      readMoreLink: "https://docs.google.com/presentation/d/1YY1GFkPCW6h5nq7FYqfbDnSIkVwZGWLWeo_YajaWw38/edit?slide=id.g3a4158422ba_0_555#slide=id.g3a4158422ba_0_555",
     },
     {
       title: "Earthquake Museum",
@@ -30,8 +30,10 @@ const Projects = () => {
       fullDescription: "'Earthquake Museum' was built to showcase a plethora of events that happened during and after the 2015 Nepal earthquake on its 10 year anniversary in 2025. It hosts several stories covered by the Nepali Times.",
       tags: ["p5.js", "THREE.js", "Blender"],
       image: earthquakeMuseumImg,
-      gameLink: "https://example.com/earthquake-museum",
-      githubLink: "https://github.com/example/earthquake-museum",
+      primaryLink: "https://nepalitimes.github.io/earthquake",
+      primaryLabel: "View Experience",
+      secondaryLink: "https://github.com/lm-rawr/earthquake",
+      secondaryLabel: "Project Details",
     },
     {
       title: "AfterDeath",
@@ -39,8 +41,10 @@ const Projects = () => {
       fullDescription: "'AfterDeath' is a short comic that uses image detection to play animations in different pages adjacent to an illustration. It cleverly plays with the concept of revelation in the afterlife revealing the outcome of each animation after the page is turned.",
       tags: ["p5.js", "teachable-machine", "interactive"],
       image: afterDeathImg,
-      gameLink: "https://example.com/afterdeath",
-      githubLink: "https://github.com/example/afterdeath",
+      primaryLink: "https://lm-rawr.github.io/afterdeath/comic/index.html",
+      primaryLabel: "Read Comic",
+      secondaryLink: "https://lm-rawr.github.io/afterdeath/afterdeath.html",
+      secondaryLabel: "Project Details",
     },
     {
       title: "Space Invaders",
@@ -48,8 +52,8 @@ const Projects = () => {
       fullDescription: "'Space Invaders' follows the classic battleship 2D pixel game, where you try to survive as long as you can on a spaceship while being invaded by enemies. It uses simple movement and shooting mechanics.",
       tags: ["python", "processing", "2D"],
       image: spaceInvadersImg,
-      gameLink: "https://example.com/space-invaders",
-      githubLink: "https://github.com/example/space-invaders",
+      primaryLink: "https://github.com/lm-rawr/Space-Invaders",
+      primaryLabel: "View Project",
     },
     {
       title: "Norman",
@@ -57,8 +61,8 @@ const Projects = () => {
       fullDescription: "'Norman' or 'Robocorp' is a robot designed for the all robot play 'RoboLove', which was performed in the exhibition 'Robot Island' in NYAUD Arts Centre. Powered by Arduino, its movements and sounds are controlled and triggered using two remote controllers.",
       tags: ["arduino", "wood-building", "remote-control"],
       image: normanImg,
-      gameLink: "https://example.com/norman",
-      githubLink: "https://github.com/example/norman",
+      primaryLink: "https://github.com/lm-rawr/PerformingRobots",
+      primaryLabel: "View Project",
     },
   ];
 
@@ -164,27 +168,31 @@ const Projects = () => {
                   </Button>
                 ) : (
                   <>
-                    <Button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        window.open(selectedProject?.gameLink, '_blank');
-                      }}
-                      className="bg-primary text-primary-foreground hover:bg-primary/90"
-                    >
-                      <ExternalLink className="mr-2" size={16} />
-                      Play Game
-                    </Button>
-                    <Button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        window.open(selectedProject?.githubLink, '_blank');
-                      }}
-                      variant="outline"
-                      className="border-primary text-primary hover:bg-primary/10"
-                    >
-                      <Github className="mr-2" size={16} />
-                      View Code
-                    </Button>
+                    {selectedProject?.primaryLink && (
+                      <Button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          window.open(selectedProject?.primaryLink, '_blank');
+                        }}
+                        className="bg-primary text-primary-foreground hover:bg-primary/90"
+                      >
+                        <ExternalLink className="mr-2" size={16} />
+                        {selectedProject?.primaryLabel || "View Project"}
+                      </Button>
+                    )}
+                    {selectedProject?.secondaryLink && (
+                      <Button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          window.open(selectedProject?.secondaryLink, '_blank');
+                        }}
+                        variant="outline"
+                        className="border-primary text-primary hover:bg-primary/10"
+                      >
+                        <ExternalLink className="mr-2" size={16} />
+                        {selectedProject?.secondaryLabel || "Project Details"}
+                      </Button>
+                    )}
                   </>
                 )}
               </div>
