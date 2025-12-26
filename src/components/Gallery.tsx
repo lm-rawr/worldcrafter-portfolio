@@ -5,7 +5,7 @@ import { useState } from "react";
 import Particles from "./Particles";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import beastDrapedWhite from "@/assets/beast-draped-white.png";
-import dogfestPoster from "@/assets/dogfest-poster.png";
+import shortAnimationsThumb from "@/assets/short-animations-thumb.png";
 import blenderModel from "@/assets/3d-model-blender.png";
 import tigerIllustration from "@/assets/tiger-illustration.png";
 import seasonsVideo from "@/assets/final.mp4";
@@ -26,9 +26,9 @@ const Gallery = () => {
       ],
     },
     {
-      title: "Animations",
+      title: "Short Animations",
       category: "Animation",
-      image: dogfestPoster,
+      image: shortAnimationsThumb,
       description: "Short hand drawn animation sequences created in Blender Grease Pencil.",
       slideshowItems: [
         { media: seasonsVideo, type: "video", description: "Seasons: A short animation sequence showing the slippers i have owned for a year and its changing state as the seasons change" },
