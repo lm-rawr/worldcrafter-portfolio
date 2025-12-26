@@ -18,7 +18,7 @@ const Projects = () => {
   const projects = [
     {
       title: "MindEater",
-      description: "2D Metroidvania/rogue-like about a spider trying to look for its lost memories",
+      description: "2D platformer about a spider trying to look for its lost memories",
       fullDescription: "'MindEater' follows the story of Spoof, who ventures through a diverse apocalyptic world looking for his past. The user plays as the spider exploring places and defeating enemies while uncovering what mystery lies behind.",
       tags: ["Unity", "C#", "2D"],
       image: mindEaterImg,
