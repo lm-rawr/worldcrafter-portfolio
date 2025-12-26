@@ -11,7 +11,7 @@ import earthquakeMuseumImg from "@/assets/earthquake-museum.png";
 import afterDeathImg from "@/assets/afterdeath.png";
 import spaceInvadersImg from "@/assets/space-invaders.png";
 import normanImg from "@/assets/norman.png";
-import dogFestImg from "@/assets/dogfest-poster.png";
+import dogFestImg from "@/assets/dogfest-thumb.png";
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
