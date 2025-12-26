@@ -11,6 +11,7 @@ import earthquakeMuseumImg from "@/assets/earthquake-museum.png";
 import afterDeathImg from "@/assets/afterdeath.png";
 import spaceInvadersImg from "@/assets/space-invaders.png";
 import normanImg from "@/assets/norman.png";
+import dogFestImg from "@/assets/dogfest-poster.png";
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
@@ -63,6 +64,15 @@ const Projects = () => {
       image: normanImg,
       primaryLink: "https://github.com/lm-rawr/PerformingRobots",
       primaryLabel: "View Project",
+    },
+    {
+      title: "Dog Fest",
+      description: "A hand drawn animated short that depicts the situation and treatment of street dogs in Nepal",
+      fullDescription: "'Dog Fest: The Day We Long For' is a hand drawn animated short that showcases how 'Kukur Tihar' is celebrated in Nepal through the lens of a dog. It provides commentary on the hypocrisy of people while treating street dogs.",
+      tags: ["hand-drawn animation", "film", "story"],
+      image: dogFestImg,
+      primaryLink: "https://youtu.be/Tr21r73iRD0?si=hF1rS8v5_bGt7WJq",
+      primaryLabel: "Trailer",
     },
   ];
 
