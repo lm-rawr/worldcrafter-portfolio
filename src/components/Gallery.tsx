@@ -16,6 +16,9 @@ import scattered from "@/assets/scattered.png";
 import seasonsVideo from "@/assets/final.mp4";
 import eyeLoopVideo from "@/assets/eyeloop.mp4";
 import swayambhuVideo from "@/assets/Swayambhu.mp4";
+import flowerLoopVideo from "@/assets/flowerloop.mp4";
+import spiderConcepts from "@/assets/spider-concepts.png";
+import dharaharaModel from "@/assets/dharahara-model.png";
 
 const Gallery = () => {
   const [selectedItem, setSelectedItem] = useState<typeof galleryItems[0] | null>(null);
@@ -27,7 +30,8 @@ const Gallery = () => {
       image: beastDrapedWhite,
       description: "Original character designs blending fantasy elements with natural aesthetics. Exploring personality and narrative through form, color, and expression.",
       slideshowItems: [
-        { media: beastDrapedWhite, type: "image", description: "" }
+        { media: beastDrapedWhite, type: "image", description: "" },
+        { media: spiderConcepts, type: "image", description: "" }
       ],
     },
     {
@@ -38,16 +42,18 @@ const Gallery = () => {
       slideshowItems: [
         { media: seasonsVideo, type: "video", description: "Seasons: A short animation sequence showing the slippers i have owned for a year and its changing state as the seasons change" },
         { media: eyeLoopVideo, type: "video", description: "Eye experimental: An experimental animation loop" },
-        { media: swayambhuVideo, type: "video", description: "A short animation of the prayer flags in Swayambhunath, a stupa in Kathmandu" }
+        { media: swayambhuVideo, type: "video", description: "A short animation of the prayer flags in Swayambhunath, a stupa in Kathmandu" },
+        { media: flowerLoopVideo, type: "video", description: "Blossom: An experimental flower animation loop" }
       ],
     },
     {
       title: "3D Models",
       category: "3D assets",
       image: blenderModel,
-      description: "Asset and character models created in Blender",
+      description: "Assets created in Blender",
       slideshowItems: [
-        { media: blenderModel, type: "image", description: "" }
+        { media: blenderModel, type: "image", description: "" },
+        { media: dharaharaModel, type: "image", description: "Dharahara Model for an interactive website" }
       ],
     },
     {
