@@ -8,6 +8,11 @@ import beastDrapedWhite from "@/assets/beast-draped-white.png";
 import shortAnimationsThumb from "@/assets/short-animations-thumb.png";
 import blenderModel from "@/assets/3d-model-blender.png";
 import tigerIllustration from "@/assets/tiger-illustration.png";
+import windowgirl from "@/assets/windowgirl.png";
+import predator from "@/assets/predator.png";
+import buddhas from "@/assets/buddhas.png";
+import saitama from "@/assets/saitama.png";
+import scattered from "@/assets/scattered.png";
 import seasonsVideo from "@/assets/final.mp4";
 import eyeLoopVideo from "@/assets/eyeloop.mp4";
 import swayambhuVideo from "@/assets/Swayambhu.mp4";
@@ -51,7 +56,12 @@ const Gallery = () => {
       image: tigerIllustration,
       description: "Digital illustrations and paintings. Exploring color, composition, and visual storytelling through 2D artwork and concept pieces.",
       slideshowItems: [
-        { media: tigerIllustration, type: "image", description: "" }
+        { media: tigerIllustration, type: "image", description: "" },
+        { media: windowgirl, type: "image", description: "" },
+        { media: predator, type: "image", description: "" },
+        { media: buddhas, type: "image", description: "" },
+        { media: saitama, type: "image", description: "" },
+        { media: scattered, type: "image", description: "" }
       ],
     },
   ];
@@ -106,22 +116,6 @@ const Gallery = () => {
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mt-12"
-        >
-          <p className="text-muted-foreground leading-relaxed">
-            More artwork available on{" "}
-            <a
-              href="#"
-              className="text-primary hover:text-accent transition-colors underline"
-            >
-              Instagram
-            </a>
-          </p>
-        </motion.div>
       </div>
 
       <Dialog open={!!selectedItem} onOpenChange={() => setSelectedItem(null)}>
